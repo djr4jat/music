@@ -1,72 +1,180 @@
-[
-  {
-    "file": "Ali Sethi and Jamaldin - Mahi Mera [Produced by Saad Sultan].mp3",
-    "title": "Ali Sethi and Jamaldin - Mahi Mera [Produced by Saad Sultan]",
-    "artist": "alisethi",
-    "album": "",
-    "duration": 286
-  },
-  {
-    "file": "Ali_Sethi_-_Jalanay_Ki_Baat_[True_Brew_Records][1].mp3",
-    "title": "Ali Sethi - Jalanay Ki Baat [True Brew Records]",
-    "artist": "alisethi",
-    "album": "",
-    "duration": 252
-  },
-  {
-    "file": "Anuv Jain - Arz Kiya Hai (Official Lyrical Video).mp3",
-    "title": "Anuv Jain - Arz Kiya Hai",
-    "artist": "AnuvJainVEVO",
-    "album": "",
-    "duration": 295
-  },
-  {
-    "file": "Dekho_(LYRICS)_-_Kaavish[1].mp3",
-    "title": "Dekho - Kaavish",
-    "artist": "Kharkan",
-    "album": "",
-    "duration": 235
-  },
-  {
-    "file": "Hamid El Shaeri - Ayonha - Remaster حميد الشاعري - عيونها - رمستر.mp3",
-    "title": "Hamid El Shaeri - Ayonha - Remaster | حميد الشاعري - عيونها - رمستر",
-    "artist": "Sonar Slam! | سونار سلاَم",
-    "album": "",
-    "duration": 220
-  },
-  {
-    "file": "Nusrat Fateh Ali Khan & Michael Brook - My Heart, My Life (Audio).mp3",
-    "title": "Nusrat Fateh Ali Khan & Michael Brook - My Heart, My Life (Audio)",
-    "artist": "Real World Records",
-    "album": "Nusrat Fateh Ali Khan & Michael Brook - My Heart, My Life (Audio)",
-    "duration": 331
-  },
-  {
-    "file": "Sangala Ghumtoharu - Narayan Gopal Nepali Song.mp3",
-    "title": "Sangala Ghumtoharu - Narayan Gopal | Nepali Song",
-    "artist": "Nepali Adhunik Song",
-    "album": "",
-    "duration": 295
-  },
-  {
-    "file": "The Fray - Known You Always (Lyric Video).mp3",
-    "title": "The Fray - Known You Always",
-    "artist": "The Fray",
-    "album": "",
-    "duration": 200
-  },
-  {
-    "file": "Tinak_Dhin[1].mp3",
-    "title": "Tinak Dhin",
-    "artist": "Ali Hamza - Topic",
-    "album": "",
-    "duration": 353
-  },
-  {
-    "file": "Umran Langiyaan.mp3",
-    "title": "Umran Langiyaan",
-    "artist": "Release - Topic",
-    "album": "",
-    "duration": 483
-  }
-]
+{
+  "version": 1773853481530,
+  "songs": [
+    {
+      "file": "7 Years - Lukas Graham.m4a",
+      "title": "7 Years",
+      "artist": "Lukas Graham",
+      "album": "Lukas Graham",
+      "duration": 239
+    },
+    {
+      "file": "Ali Sethi and Jamaldin - Mahi Mera [Produced by Saad Sultan].mp3",
+      "title": "Ali Sethi and Jamaldin - Mahi Mera [Produced by Saad Sultan]",
+      "artist": "alisethi",
+      "album": "",
+      "duration": 286
+    },
+    {
+      "file": "Ali_Sethi_-_Jalanay_Ki_Baat_[True_Brew_Records][1].mp3",
+      "title": "Ali Sethi - Jalanay Ki Baat [True Brew Records]",
+      "artist": "alisethi",
+      "album": "",
+      "duration": 252
+    },
+    {
+      "file": "Anuv Jain - Arz Kiya Hai (Official Lyrical Video).mp3",
+      "title": "Anuv Jain - Arz Kiya Hai",
+      "artist": "AnuvJainVEVO",
+      "album": "",
+      "duration": 295
+    },
+    {
+      "file": "Bohot Bechain - Khwaab, Divyam Sodhi.m4a",
+      "title": "Bohot Bechain",
+      "artist": "Khwaab, Divyam Sodhi",
+      "album": "Bohot Bechain",
+      "duration": 231
+    },
+    {
+      "file": "Bujhau Malai - Sushant Ghimire.m4a",
+      "title": "Bujhau Malai",
+      "artist": "Sushant Ghimire",
+      "album": "Bujhau Malai",
+      "duration": 325
+    },
+    {
+      "file": "Bulleya (MTV Unplugged) - Vishal-Shekhar, Papon, Irshad Kamil.m4a",
+      "title": "Bulleya (MTV Unplugged)",
+      "artist": "Vishal-Shekhar, Papon, Irshad Kamil",
+      "album": "Bulleya (MTV Unplugged)",
+      "duration": 374
+    },
+    {
+      "file": "Chali Kahani - Sukhwinder Singh, Haricharan, Haripriya.m4a",
+      "title": "Chali Kahani",
+      "artist": "Sukhwinder Singh, Haricharan, Haripriya",
+      "album": "Tamasha",
+      "duration": 320
+    },
+    {
+      "file": "Dekho_(LYRICS)_-_Kaavish[1].mp3",
+      "title": "Dekho - Kaavish",
+      "artist": "Kharkan",
+      "album": "",
+      "duration": 235
+    },
+    {
+      "file": "Futile Devices - Sufjan Stevens.m4a",
+      "title": "Futile Devices",
+      "artist": "Sufjan Stevens",
+      "album": "The Age of Adz",
+      "duration": 133
+    },
+    {
+      "file": "Hamid El Shaeri - Ayonha - Remaster حميد الشاعري - عيونها - رمستر.mp3",
+      "title": "Hamid El Shaeri - Ayonha - Remaster | حميد الشاعري - عيونها - رمستر",
+      "artist": "Sonar Slam! | سونار سلاَم",
+      "album": "",
+      "duration": 220
+    },
+    {
+      "file": "Kaash - Hariharan.m4a",
+      "title": "Kaash",
+      "artist": "Hariharan",
+      "album": "Kaash",
+      "duration": 360
+    },
+    {
+      "file": "Katiya Karun - Harshdeep Kaur.m4a",
+      "title": "Katiya Karun",
+      "artist": "Harshdeep Kaur",
+      "album": "Rockstar",
+      "duration": 238
+    },
+    {
+      "file": "Moner Manush - Anupam Roy, Satyaki Banerjee, Babul Supriyo.m4a",
+      "title": "Moner Manush",
+      "artist": "Anupam Roy, Satyaki Banerjee, Babul Supriyo",
+      "album": "Very Best of Coke Studio Vol. 1",
+      "duration": 515
+    },
+    {
+      "file": "My Love Mine All Mine - Mitski.m4a",
+      "title": "My Love Mine All Mine",
+      "artist": "Mitski",
+      "album": "The Land Is Inhospitable and So Are We",
+      "duration": 170
+    },
+    {
+      "file": "Mystery of Love - Sufjan Stevens.m4a",
+      "title": "Mystery of Love",
+      "artist": "Sufjan Stevens",
+      "album": "Call Me By Your Name (Original Motion Picture Soundtrack)",
+      "duration": 251
+    },
+    {
+      "file": "Nusrat Fateh Ali Khan & Michael Brook - My Heart, My Life (Audio).mp3",
+      "title": "Nusrat Fateh Ali Khan & Michael Brook - My Heart, My Life (Audio)",
+      "artist": "Real World Records",
+      "album": "Nusrat Fateh Ali Khan & Michael Brook - My Heart, My Life (Audio)",
+      "duration": 331
+    },
+    {
+      "file": "O Sanam - Lucky Ali.m4a",
+      "title": "O Sanam",
+      "artist": "Lucky Ali",
+      "album": "Sunoh",
+      "duration": 257
+    },
+    {
+      "file": "Sangala Ghumtoharu - Narayan Gopal Nepali Song.mp3",
+      "title": "Sangala Ghumtoharu - Narayan Gopal | Nepali Song",
+      "artist": "Nepali Adhunik Song",
+      "album": "",
+      "duration": 295
+    },
+    {
+      "file": "Tajdar-E-Haram - Atif Aslam.m4a",
+      "title": "Tajdar-E-Haram",
+      "artist": "Atif Aslam",
+      "album": "Coke Studio: Season 8",
+      "duration": 617
+    },
+    {
+      "file": "The Fray - Known You Always (Lyric Video).mp3",
+      "title": "The Fray - Known You Always",
+      "artist": "The Fray",
+      "album": "",
+      "duration": 200
+    },
+    {
+      "file": "The Way I Love You - yaeow, Neptune.m4a",
+      "title": "The Way I Love You",
+      "artist": "yaeow, Neptune",
+      "album": "The Way I Love You",
+      "duration": 163
+    },
+    {
+      "file": "Tinak_Dhin[1].mp3",
+      "title": "Tinak Dhin",
+      "artist": "Ali Hamza - Topic",
+      "album": "",
+      "duration": 353
+    },
+    {
+      "file": "Tum Tak - Jammin' - Javed Ali, Adnan Ahmad, Amrita Nayak.m4a",
+      "title": "Tum Tak - Jammin'",
+      "artist": "Javed Ali, Adnan Ahmad, Amrita Nayak",
+      "album": "Jammin', 8",
+      "duration": 311
+    },
+    {
+      "file": "Umran Langiyaan.mp3",
+      "title": "Umran Langiyaan",
+      "artist": "Release - Topic",
+      "album": "",
+      "duration": 483
+    }
+  ]
+}
