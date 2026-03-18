@@ -262,22 +262,41 @@ html, body {
 #libraryView {
   background: var(--grey-1);
   z-index: 20;
-  transform: translateY(100%);
+  transform: translateX(-100%);
   opacity: 0;
-  border-radius: var(--radius) var(--radius) 0 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  width: min(85vw, 360px);
+  right: auto;
+  box-shadow: 8px 0 40px rgba(0,0,0,0.6);
 }
 #libraryView.open {
-  transform: translateY(0);
+  transform: translateX(0);
   opacity: 1;
   pointer-events: all;
 }
+
+/* dim overlay behind drawer */
+#drawerOverlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 15;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+#drawerOverlay.open { opacity: 1; pointer-events: all; }
 
 .lib-header {
   flex-shrink: 0;
   padding: calc(var(--safe-top) + 20px) 24px 16px;
   border-bottom: 1px solid #1e1e1e;
 }
-.lib-drag { width: 36px; height: 4px; background: var(--grey-3); border-radius: 2px; margin: 0 auto 16px; cursor: pointer; }
+.lib-drag {
+  font-size: 1.1rem; color: var(--grey-4);
+  cursor: pointer; margin-bottom: 16px;
+  display: inline-block;
+  transition: color 0.2s;
+}
+.lib-drag:hover { color: var(--white); }
 .lib-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
 .lib-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-style: italic; }
 .lib-count { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--grey-4); letter-spacing: 0.15em; }
@@ -381,9 +400,10 @@ html, body {
 
 /* mini player bar */
 .mini-player {
-  position: fixed; bottom: calc(var(--safe-bottom) + 12px);
-  left: 16px; right: 16px;
-  background: rgba(28,28,28,0.92);
+  position: absolute;
+  bottom: calc(var(--safe-bottom) + 12px);
+  left: 12px; right: 12px;
+  background: rgba(40,40,40,0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 14px;
@@ -440,10 +460,8 @@ html, body {
   .play-pause { width: 76px; height: 76px; }
 }
 @media (min-width: 1024px) {
-  #playerView, #libraryView { max-width: 480px; margin: 0 auto; }
-  #libraryView { border-radius: var(--radius); top: 0; }
-  .mini-player { max-width: calc(480px - 32px); left: 50%; transform: translateX(-50%) translateY(0); }
-  .mini-player.hidden { transform: translateX(-50%) translateY(120%); }
+  #playerView { max-width: 480px; margin: 0 auto; }
+  #libraryView { border-radius: 0 var(--radius) var(--radius) 0; top: 0; }
 }
 </style>
 </head>
@@ -517,10 +535,13 @@ html, body {
   </div>
 </div>
 
+<!-- dim overlay -->
+<div id="drawerOverlay"></div>
+
 <!-- ─── LIBRARY VIEW ────────────────────────────── -->
 <div class="view" id="libraryView">
   <div class="lib-header">
-    <div class="lib-drag" id="libDrag"></div>
+    <div class="lib-drag" id="libDrag" title="Close library">←</div>
     <div class="lib-top">
       <div class="lib-title">Library</div>
       <div class="lib-count" id="libCount">— tracks</div>
@@ -868,23 +889,102 @@ document.getElementById('miniNext').addEventListener('click', e => { e.stopPropa
 document.getElementById('miniPlayer').addEventListener('click', closeLibrary);
 
 // ─── LIBRARY OPEN/CLOSE ────────────────────────────
-function openLibrary() {
-  document.getElementById('libraryView').classList.add('open');
-}
-function closeLibrary() {
-  document.getElementById('libraryView').classList.remove('open');
-}
+function openLibrary()  { snapOpen();  }
+function closeLibrary() { snapClose(); }
 
 document.getElementById('libraryHandleBtn').addEventListener('click', openLibrary);
 document.getElementById('libDrag').addEventListener('click', closeLibrary);
+document.getElementById('drawerOverlay').addEventListener('click', closeLibrary);
+document.getElementById('miniPlayer').addEventListener('click', closeLibrary);
 
-// swipe down to close library
-let touchStartY = 0;
-document.getElementById('libraryView').addEventListener('touchstart', e => { touchStartY = e.touches[0].clientY; }, { passive: true });
-document.getElementById('libraryView').addEventListener('touchend', e => {
-  const dy = e.changedTouches[0].clientY - touchStartY;
-  if (dy > 60) closeLibrary();
-});
+// ─── SWIPE GESTURE (left drawer) ──────────────────
+const drawer    = document.getElementById('libraryView');
+const overlay   = document.getElementById('drawerOverlay');
+const drawerW   = () => drawer.getBoundingClientRect().width || window.innerWidth * 0.85;
+
+let gStartX = 0, gStartY = 0, gDragging = false, gDir = null;
+
+// Helper: snap drawer to position instantly (no transition)
+function setDrawerPos(x) {
+  drawer.style.transition = 'none';
+  overlay.style.transition = 'none';
+  const w = drawerW();
+  const clamped = Math.max(-w, Math.min(0, x));
+  drawer.style.transform = `translateX(${clamped}px)`;
+  overlay.style.opacity  = 1 + clamped / w; // 0 when fully hidden, 1 when open
+}
+
+function snapOpen() {
+  drawer.style.transition  = '';
+  overlay.style.transition = '';
+  drawer.classList.add('open');
+  overlay.classList.add('open');
+  drawer.style.transform   = '';
+  overlay.style.opacity    = '';
+}
+
+function snapClose() {
+  drawer.style.transition  = '';
+  overlay.style.transition = '';
+  drawer.classList.remove('open');
+  overlay.classList.remove('open');
+  drawer.style.transform   = '';
+  overlay.style.opacity    = '';
+}
+
+// Touch on the PLAYER — swipe right anywhere (not just edge) to open
+document.getElementById('playerView').addEventListener('touchstart', e => {
+  gStartX  = e.touches[0].clientX;
+  gStartY  = e.touches[0].clientY;
+  gDir     = null;
+  gDragging = false;
+}, { passive: true });
+
+document.getElementById('playerView').addEventListener('touchmove', e => {
+  const dx = e.touches[0].clientX - gStartX;
+  const dy = Math.abs(e.touches[0].clientY - gStartY);
+  if (!gDir) gDir = Math.abs(dx) > dy ? 'h' : 'v';
+  if (gDir !== 'h' || dx < 0) return;
+  gDragging = true;
+  const w = drawerW();
+  setDrawerPos(dx - w);
+}, { passive: true });
+
+document.getElementById('playerView').addEventListener('touchend', e => {
+  if (!gDragging) { gDragging = false; return; }
+  const dx = e.changedTouches[0].clientX - gStartX;
+  dx > 80 ? snapOpen() : snapClose();
+  gDragging = false;
+}, { passive: true });
+
+// Touch on the DRAWER — swipe left to close
+drawer.addEventListener('touchstart', e => {
+  // don't intercept scrolling inside track list
+  if (e.target.closest('.track-list')) {
+    gDir = null; gDragging = false; return;
+  }
+  gStartX  = e.touches[0].clientX;
+  gStartY  = e.touches[0].clientY;
+  gDir     = null;
+  gDragging = false;
+}, { passive: true });
+
+drawer.addEventListener('touchmove', e => {
+  if (e.target.closest('.track-list')) return;
+  const dx = e.touches[0].clientX - gStartX;
+  const dy = Math.abs(e.touches[0].clientY - gStartY);
+  if (!gDir) gDir = Math.abs(dx) > dy ? 'h' : 'v';
+  if (gDir !== 'h' || dx > 0) return;
+  gDragging = true;
+  setDrawerPos(dx);
+}, { passive: true });
+
+drawer.addEventListener('touchend', e => {
+  if (!gDragging) return;
+  const dx = e.changedTouches[0].clientX - gStartX;
+  dx < -60 ? snapClose() : snapOpen();
+  gDragging = false;
+}, { passive: true });
 
 document.getElementById('searchInput').addEventListener('input', renderTrackList);
 
