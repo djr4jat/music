@@ -80,7 +80,8 @@ async function generate() {
     console.log(`  ✓  ${title} — ${artist}  [${dur}]`);
   }
 
-  fs.writeFileSync(OUTPUT, JSON.stringify(songs, null, 2));
+  const output = { version: Date.now(), songs };
+  fs.writeFileSync(OUTPUT, JSON.stringify(output, null, 2));
   console.log(`\n✅  songs.json written with ${songs.length} track(s)\n`);
   console.log('   Commit & push to GitHub — your player is ready!\n');
 }
