@@ -1,0 +1,36 @@
+name: Generate songs.json
+
+on:
+  push:
+    paths:
+      - 'music/**'   # runs only when files in music/ change
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # so it can commit songs.json back
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install music-metadata
+
+      - name: Run generate.js
+        run: node generate.js
+
+      - name: Commit songs.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add songs.json
+          git diff --cached --quiet || git commit -m "chore: update songs.json"
+          git push
