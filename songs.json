@@ -1,10 +1,24 @@
 [
   {
+    "file": "Ali Sethi and Jamaldin - Mahi Mera [Produced by Saad Sultan].mp3",
+    "title": "Ali Sethi and Jamaldin - Mahi Mera [Produced by Saad Sultan]",
+    "artist": "alisethi",
+    "album": "",
+    "duration": 286
+  },
+  {
     "file": "Ali_Sethi_-_Jalanay_Ki_Baat_[True_Brew_Records][1].mp3",
     "title": "Ali Sethi - Jalanay Ki Baat [True Brew Records]",
     "artist": "alisethi",
     "album": "",
     "duration": 252
+  },
+  {
+    "file": "Anuv Jain - Arz Kiya Hai (Official Lyrical Video).mp3",
+    "title": "Anuv Jain - Arz Kiya Hai",
+    "artist": "AnuvJainVEVO",
+    "album": "",
+    "duration": 295
   },
   {
     "file": "Dekho_(LYRICS)_-_Kaavish[1].mp3",
@@ -14,10 +28,45 @@
     "duration": 235
   },
   {
+    "file": "Hamid El Shaeri - Ayonha - Remaster حميد الشاعري - عيونها - رمستر.mp3",
+    "title": "Hamid El Shaeri - Ayonha - Remaster | حميد الشاعري - عيونها - رمستر",
+    "artist": "Sonar Slam! | سونار سلاَم",
+    "album": "",
+    "duration": 220
+  },
+  {
+    "file": "Nusrat Fateh Ali Khan & Michael Brook - My Heart, My Life (Audio).mp3",
+    "title": "Nusrat Fateh Ali Khan & Michael Brook - My Heart, My Life (Audio)",
+    "artist": "Real World Records",
+    "album": "Nusrat Fateh Ali Khan & Michael Brook - My Heart, My Life (Audio)",
+    "duration": 331
+  },
+  {
+    "file": "Sangala Ghumtoharu - Narayan Gopal Nepali Song.mp3",
+    "title": "Sangala Ghumtoharu - Narayan Gopal | Nepali Song",
+    "artist": "Nepali Adhunik Song",
+    "album": "",
+    "duration": 295
+  },
+  {
+    "file": "The Fray - Known You Always (Lyric Video).mp3",
+    "title": "The Fray - Known You Always",
+    "artist": "The Fray",
+    "album": "",
+    "duration": 200
+  },
+  {
     "file": "Tinak_Dhin[1].mp3",
     "title": "Tinak Dhin",
     "artist": "Ali Hamza - Topic",
     "album": "",
     "duration": 353
+  },
+  {
+    "file": "Umran Langiyaan.mp3",
+    "title": "Umran Langiyaan",
+    "artist": "Release - Topic",
+    "album": "",
+    "duration": 483
   }
 ]
